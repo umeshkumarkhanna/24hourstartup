@@ -21,4 +21,4 @@ City Kit
 * Bo Peng
 * Mason Kuang
 
-<strong>Hello (int) 23/33*100</strong>
+<code>console.log("Hello" + (int) 23/33*100);</code>
