@@ -20,5 +20,3 @@ City Kit
 * Syed Haque
 * Bo Peng
 * Mason Kuang
-
-<code>console.log("Hello" + (int) 23/33*100);</code>
