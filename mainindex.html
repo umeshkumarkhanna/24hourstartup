@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CityKit</title>
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<!-- Google Font CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+		#loader_page1, #loader_page2 {
+			position: absolute;
+			bottom: 50%;
+			left: 0px;
+			width: 100%;
+			height: 50%;
+			background: #FFF;
+			z-index: 10;
+		}
+
+		#loader_page2 {
+			bottom: 0%;
+		}
+
+		#main_loading_bar {
+			position: absolute;
+			top: calc(50% - 5px);
+			left: 0px;
+			width: 0px;
+			height: 10px;
+			background: #000;
+			z-index: 11;
+		}
+
+		#load_title {
+			position: absolute;
+			top: 15%;
+			left: 0px;
+			width: 100%;
+			height: 15%;
+			text-align: center;
+			line-height: 100%;
+			font-family: Gotham;
+			font-size: 100%;
+			color: #000;
+			-webkit-user-select: none;
+			user-select: none;
+			cursor: default;
+			padding: 20px 0px 20px 0px;
+			z-index: 11;
+			opacity: 0;
+			-webkit-transition: opacity 0.3s;
+		}
+	</style>
+</head>
+<body>
+<!--
+<div id="load_title">citykit</div>
+<div id="loader_page1"></div>
+<div id="main_loading_bar"></div>
+<div id="loader_page2"></div>
+-->
+<div id="bgwrapper">
+	<div id="title">citykit</div>
+	<div id="slogan">Integrate your city into your life.</div>
+	<div id="main_options">
+		<ul>
+			<li id="butt1" onClick="near_me()">What's near me?</li>
+			<!--<li id="butt2">I know where I'm going</li>-->
+		</ul>
+	</div> <!-- end main_options div -->
+</div>
+<div id="map-canvas"></div>
+<div id="settings_butt">Show Settings</div>
+<div id="settings">
+	<ul id="settings_text">
+		<li id="events">City Events</li>
+		<li id="sports">Sports Events</li>
+		<li id="concerts">Concerts</li>
+		<li id="stores">Stores</li>
+		<li id="food">Food</li>
+		<li id="sports_fields">Sports Fields</li>
+		<li id="museums">Landmarks</li>
+	<!--	<li id="comm_center">Community Centers</li>
+		<li id="pub_art">Public Art</li>
+		<li id="dog_parks">Dog Parks</li>
+		<li id="poi">Points of Interest</li>
+		<li id="playgrounds">Playgrounds</li> -->
+		<li id="time">Within: <input type="number" id="time_select" min="1" max="72" value="1" onChange="get_time()" /> hour(s)</li>
+	</ul>
+</div> <!-- end settings div -->
+<!--<iframe id="map-canvas" frameborder="0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCoj4oT-3zbL-sW9B6Wb4k84xTGrFCcIFo&q=Kitchener&zoom=13">
+</iframe>-->
+</body>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCOAYQWcsQyPxvrWTK1x_8WNTrjBawrVkA"></script>
+<script type="text/javascript" src="js/curLoc.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// on page 'load', run loading bar
+		var load_time = 2300;
+		$("#load_title").css("opacity", "1");
+		$("#load_title").css("font-size", $("#load_title").height());
+		$("#main_loading_bar").animate({
+			'width' : '100%'
+		}, load_time);
+
+
+		$("#loader_page1").delay(load_time).animate({
+			'bottom' : '100%'
+		});
+		$("#loader_page2").delay(load_time).animate({
+			'bottom' : '-50%'
+		});
+		$("#main_loading_bar").fadeOut();
+		/*$("#loader_page1").delay(load_time).fadeOut();*/
+		$("#load_title").delay(2000).fadeOut();
+	});
+</script>
+</html>
