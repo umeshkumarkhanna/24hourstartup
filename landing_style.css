@@ -18,10 +18,18 @@ date: november 17, 2014
 
 
 body {
-	background: url("images/landerbg.jpg") no-repeat center center fixed;
-	background-size: cover;
 	font-size: 100%;
 	overflow: hidden;
+}
+
+#bgWrapper {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: url("images/landerbg.jpg") no-repeat center bottom fixed;
+	background-size: cover;
 }
 
 #frost {
@@ -64,4 +72,18 @@ body {
 	width: 15em;
 	height: 3em;
 	background: #000;
+}
+
+#slogan {
+	position: absolute;
+	top: 65%;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background: transparent;
+	text-align: center;
+	line-height: 50px; 
+	font-family: 'Gotham', 'Arial';
+	font-size: 20px;
+	color: #FFF;
 }
